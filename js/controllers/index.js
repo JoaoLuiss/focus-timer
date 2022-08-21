@@ -9,10 +9,10 @@ import {
   buttonFire,
   minutesElement,
   secondsElement
-} from '/js/views/elements.js'
-import { Events } from '/js/controllers/events.js'
-import { Timer } from '/js/models/timer.js'
-import { Sounds } from '/js/models/sounds.js'
+} from '../views/elements.js'
+import { Events } from './events.js'
+import { Timer } from '../models/timer.js'
+import { Sounds } from '../models/sounds.js'
 
 const sounds = Sounds()
 
