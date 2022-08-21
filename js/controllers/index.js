@@ -10,9 +10,9 @@ import {
   minutesElement,
   secondsElement
 } from '../views/elements.js'
-import { Events } from '/focus-timer/js/controlles/events.js'
-import { Timer } from '/focus-timer/js/models/timer.js'
-import { Sounds } from '/focus-timer/js/models/sounds.js'
+import { Events } from './events.js'
+import { Timer } from '../models/timer.js'
+import { Sounds } from '../models/sounds.js'
 
 const sounds = Sounds()
 
