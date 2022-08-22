@@ -1,9 +1,9 @@
 export function Sounds() {
   const soundsList = {}
-  soundsList.forestSound = new Audio('js/assets/Floresta.wav')
-  soundsList.rainSound = new Audio('/js/assets/Chuva.wav')
-  soundsList.marketSound = new Audio('/js/assets/Cafeteria.wav')
-  soundsList.fireSound = new Audio('/js/assets/Lareira.wav')
+  soundsList.forestSound = new Audio('/focus-timer/js/assets/Floresta.wav')
+  soundsList.rainSound = new Audio('/focus-timer/js/assets/Chuva.wav')
+  soundsList.marketSound = new Audio('/focus-timer/js/assets/Cafeteria.wav')
+  soundsList.fireSound = new Audio('/focus-timer/js/assets/Lareira.wav')
 
   for (const object in soundsList) {
     if (Object.hasOwnProperty.call(soundsList, object)) {
