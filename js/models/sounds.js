@@ -11,6 +11,11 @@ export function Sounds() {
       sound.loop = true
     }
   }
+
+  const timeEndedSound = new Audio(
+    'https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true'
+  )
+
   const btnClickingSound = new Audio(
     'https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true'
   )
@@ -47,6 +52,10 @@ export function Sounds() {
     } else soundsList.fireSound.pause()
   }
 
+  function timeEnded() {
+    timeEndedSound.play()
+  }
+
   function stopAllSounds() {
     for (const object in soundsList) {
       if (Object.hasOwnProperty.call(soundsList, object)) {
@@ -56,5 +65,13 @@ export function Sounds() {
     }
   }
 
-  return { btnClicking, forest, rain, market, fire, stopAllSounds }
+  return {
+    btnClicking,
+    forest,
+    rain,
+    market,
+    fire,
+    timeEnded,
+    stopAllSounds
+  }
 }

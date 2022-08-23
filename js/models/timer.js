@@ -1,4 +1,4 @@
-export function Timer({ sounds, minutesElement, secondsElement }) {
+export function Timer({ minutesElement, secondsElement, sounds }) {
   let minutes = Number(minutesElement.textContent)
   let seconds = Number(secondsElement.textContent)
   let resetMinutes = minutes
@@ -20,9 +20,14 @@ export function Timer({ sounds, minutesElement, secondsElement }) {
       fillZeroOnDisplay()
       if (minutes == 0 && seconds == 0) {
         finishTimer()
-        // sounds.timerFinished()
       } else play()
     }, 1000)
+  }
+
+  function finishTimer() {
+    stop()
+    resetTimer()
+    sounds.timeEnded()
   }
 
   function stop() {
@@ -30,9 +35,13 @@ export function Timer({ sounds, minutesElement, secondsElement }) {
     isRolling = false
   }
 
-  function finishTimer() {
-    stop()
-    resetTimer()
+  function resetTimer() {
+    minutes = resetMinutes
+    seconds = resetSeconds
+    minutesElement.textContent = minutes
+    secondsElement.textContent = seconds
+    console.log('ola1')
+    fillZeroOnDisplay()
   }
 
   function plusFive() {
@@ -43,7 +52,7 @@ export function Timer({ sounds, minutesElement, secondsElement }) {
   }
 
   function minusFive() {
-    if (minutes - 5 < 0 ) {
+    if (minutes - 5 < 0) {
       // do nothing, cause there is not 5 minutes to take off
     } else {
       minutes -= 5
@@ -51,14 +60,6 @@ export function Timer({ sounds, minutesElement, secondsElement }) {
       minutesElement.textContent = minutes
       fillZeroOnDisplay()
     }
-  }
-
-  function resetTimer() {
-    minutes = resetMinutes
-    seconds = resetSeconds
-    minutesElement.textContent = minutes
-    secondsElement.textContent = seconds
-    fillZeroOnDisplay()
   }
 
   function isItRolling() {
