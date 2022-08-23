@@ -16,7 +16,7 @@ import { Sounds } from '../models/sounds.js'
 
 const sounds = Sounds()
 
-const timer = Timer({ minutesElement, secondsElement })
+const timer = Timer({ minutesElement, secondsElement, sounds })
 
 Events({
   buttonPlay,
