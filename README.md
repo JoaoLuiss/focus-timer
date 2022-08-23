@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como um desafio para aplicar os conhecimentos adiq
 
 ## Deploy
 
-Para ver este projeto funcionando clique no link abaixo: 
+Acesse o link abaixo para ver este projeto funcionando: 
 
 [**_FocusTimer - Página hosteada pelo GitHub_**](https://joaoluiss.github.io/focus-timer/)
 
