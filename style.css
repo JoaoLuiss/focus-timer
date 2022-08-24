@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  border: none;
+  border: 0;
   box-sizing: border-box;
 }
 
@@ -23,8 +23,9 @@ body {
   font-size: 16rem;
   font-family: var(--ff-timer);
   display: grid;
+  grid-template-rows: auto 20vh;
+  /* grid-template-areas: ; */
   align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
@@ -34,6 +35,7 @@ main {
   justify-content: center;
   align-items: center;
   height: fit-content;
+  margin-top: 8px;
 }
 
 .timer-section {
@@ -142,6 +144,23 @@ main {
   fill: white;
 }
 
+.theme-wrapper {
+  align-self: flex-start;
+  justify-self: flex-end;
+  height: fit-content;
+  width: fit-content;
+  margin-top: clamp(20px, 4vh, 100px);
+  margin-inline: clamp(30px, 12vw, 100px);
+}
+
+.theme-wrapper .lightmode-on {
+  display: inline;
+}
+
+.theme-wrapper .darkmode-on {
+  display: none;
+}
+
 @keyframes left-to-right {
   0% {
     opacity: 0;
@@ -167,10 +186,13 @@ main {
 }
 
 @media (max-width: 732px) {
+  body {
+    grid-template-rows: auto auto;
+  }
+
   main {
     flex-direction: column;
     gap: 60rem;
-    margin-top: 34rem;
   }
 
   .timer-display {
@@ -194,5 +216,12 @@ main {
   .btn-sound svg {
     width: clamp(16rem, 10vw, 46rem);
     /* width: 46rem; */
+  }
+
+  .theme-wrapper {
+    align-self: flex-start;
+    justify-self: center;
+    margin: 0;
+    padding: clamp(4px, 6vh, 32px);
   }
 }
