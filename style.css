@@ -61,7 +61,9 @@ main {
   justify-content: space-around;
 }
 
-.btn-control {
+.btn-control,
+.btn-lightmode-on,
+.btn-darkmode-on {
   background: none;
   display: flex;
   position: relative;
@@ -69,9 +71,12 @@ main {
   gap: 8rem;
   justify-content: flex-end;
   align-items: center;
+  align-content: center;
 }
 
-.btn-control::after {
+.btn-control::after,
+.btn-lightmode-on::after,
+.btn-darkmode-on::after {
   content: '';
   background-color: var(--color-emphasis);
   display: block;
@@ -84,12 +89,17 @@ main {
   transition: all 0.1s ease-in-out;
 }
 
-.btn-control:hover::after {
+.btn-control:hover::after,
+.btn-lightmode-on:hover::after,
+.btn-darkmode-on:hover::after {
+  align-self: center;
   border-radius: 999px;
   width: 100%;
 }
 
-.btn-control:active::after {
+.btn-control:active::after,
+.btn-lightmode-on:active::after,
+.btn-darkmode-on:active::after {
   opacity: 0.4;
   border-radius: 999px;
   width: 100%;
@@ -153,11 +163,11 @@ main {
   margin-inline: clamp(30px, 12vw, 100px);
 }
 
-.theme-wrapper .lightmode-on {
+.theme-wrapper .btn-lightmode-on svg {
   display: inline;
 }
 
-.theme-wrapper .darkmode-on {
+.theme-wrapper .btn-darkmode-on {
   display: none;
 }
 
