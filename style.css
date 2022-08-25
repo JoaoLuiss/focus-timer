@@ -23,10 +23,9 @@ body {
   font-size: 16rem;
   font-family: var(--ff-timer);
   display: grid;
-  grid-template-rows: auto 20vh;
-  /* grid-template-areas: ; */
   align-items: center;
   height: 100vh;
+  position: relative;
 }
 
 main {
@@ -155,12 +154,11 @@ main {
 }
 
 .theme-wrapper {
-  align-self: flex-start;
-  justify-self: flex-end;
-  height: fit-content;
-  width: fit-content;
-  margin-top: clamp(20px, 4vh, 100px);
-  margin-inline: clamp(30px, 12vw, 100px);
+  position: absolute;
+  top: clamp(18px, 8vw, 90px);
+  /* top: 30px; */
+  right: clamp(18px, 8vw, 90px);
+  /* right: 30px; */
 }
 
 .theme-wrapper .btn-lightmode-on svg {
@@ -196,10 +194,6 @@ main {
 }
 
 @media (max-width: 732px) {
-  body {
-    grid-template-rows: auto auto;
-  }
-
   main {
     flex-direction: column;
     gap: 60rem;
@@ -227,11 +221,18 @@ main {
     width: clamp(16rem, 10vw, 46rem);
     /* width: 46rem; */
   }
+}
+
+@media (max-width: 1024px) {
+  body {
+    grid-template-rows: auto auto;
+  }
 
   .theme-wrapper {
     align-self: flex-start;
     justify-self: center;
     margin: 0;
     padding: clamp(4px, 6vh, 32px);
+    position: initial;
   }
 }
