@@ -8,11 +8,25 @@
 :root {
   font-size: 6.25%;
   --ff-timer: 'Roboto', sans-serif;
-  --bg-color-button: hsl(240, 9%, 89%);
-  --color-emphasis: hsl(194, 97%, 31%);
-  --fc-color-emphasis: #fff;
-  --fc-text-primary: hsl(240, 6%, 21%);
-  --btn-cntrl-width: 48rem;
+
+  /* Light Mode colors */
+  --bg-body: white;
+  --bg-primary-color: hsl(240, 9%, 89%);
+  --bg-emphasis: hsl(194, 97%, 31%);
+  --fc-primary-color: hsl(240, 6%, 21%);
+  --fc-icon-emphasis: white;
+  /*  
+    Dark Mode colors are NOT BEING USED here.
+    Colors of the dark mode are being changed by javascript
+    here im just "storign" them 
+  */
+  --bg-body-darkmode: black;
+  --bg-primary-color-darkmode: hsl(240, 9%, 21%);
+  --bg-emphasis-darkmode: hsl(194, 97%, 31%);
+  --fc-primary-color-darkmode: hsl(240, 6%, 89%);
+  --fc-icon-emphasis-darkmode: white;
+
+  /* to avoid repetition for the animations / below */
   --animation-duration: 1.2s;
   --animation-delay: 0.2s;
   --animation-timing-function: ease-in-out;
@@ -20,6 +34,7 @@
 }
 
 body {
+  background-color: var(--bg-body);
   font-size: 16rem;
   font-family: var(--ff-timer);
   display: grid;
@@ -52,7 +67,7 @@ main {
   font-size: clamp(80rem, 17vw, 130rem);
   /* font-size: 126rem; */
   font-weight: 500;
-  color: var(--fc-text-primary);
+  color: var(--fc-primary-color);
 }
 
 .panel-controls {
@@ -77,7 +92,7 @@ main {
 .btn-lightmode-on::after,
 .btn-darkmode-on::after {
   content: '';
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
   display: block;
   justify-self: flex-end;
   position: absolute;
@@ -106,6 +121,10 @@ main {
   margin-bottom: 0;
 }
 
+.btn-control svg path {
+  fill: var(--fc-primary-color);
+}
+
 .sounds-section {
   display: grid;
   grid-template-areas:
@@ -120,7 +139,7 @@ main {
 }
 
 .btn-sound {
-  background-color: var(--bg-color-button);
+  background-color: var(--bg-primary-color);
 
   width: clamp(50rem, 20vw, 138rem);
   /* width: 138rem; */
@@ -131,7 +150,7 @@ main {
 }
 
 .btn-sound:hover {
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
 }
 
 .btn-sound svg {
@@ -149,8 +168,12 @@ main {
   height: 48rem;
 }
 
+.btn-sound svg path {
+  fill: var(--fc-primary-color)
+}
+
 .btn-sound:hover svg path {
-  fill: white;
+  fill: var(--fc-icon-emphasis);
 }
 
 .theme-wrapper {
@@ -161,12 +184,19 @@ main {
   /* right: 30px; */
 }
 
-.theme-wrapper .btn-lightmode-on svg {
+.btn-lightmode-on svg {
   display: inline;
 }
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
+}
 
-.theme-wrapper .btn-darkmode-on svg {
+.btn-darkmode-on svg {
   display: inline;
+  width: 100%;
+}
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
 }
 
 @keyframes left-to-right {

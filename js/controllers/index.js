@@ -15,7 +15,7 @@ import {
 import { Events } from './events.js'
 import { Timer } from '../models/timer.js'
 import { Sounds } from '../models/sounds.js'
-import { Scenario } from '../views/scenarios.js'
+import { Scenario } from '../views/scenario.js'
 
 const sounds = Sounds()
 
