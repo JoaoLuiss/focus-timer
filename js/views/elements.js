@@ -8,6 +8,8 @@ const buttonMarket = document.querySelector('.btn-market')
 const buttonFire = document.querySelector('.btn-fire')
 const minutesElement = document.querySelector('.minutes')
 const secondsElement = document.querySelector('.seconds')
+const buttonLightmodeOn = document.querySelector('.btn-lightmode-on')
+const buttonDarkmodeOn = document.querySelector('.btn-darkmode-on')
 
 export {
   buttonPlay,
@@ -19,5 +21,7 @@ export {
   buttonMarket,
   buttonFire,
   minutesElement,
-  secondsElement
+  secondsElement,
+  buttonLightmodeOn,
+  buttonDarkmodeOn
 }

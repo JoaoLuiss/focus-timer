@@ -165,8 +165,8 @@ main {
   display: inline;
 }
 
-.theme-wrapper .btn-darkmode-on {
-  display: none;
+.theme-wrapper .btn-darkmode-on svg {
+  display: inline;
 }
 
 @keyframes left-to-right {
@@ -235,4 +235,8 @@ main {
     padding: clamp(4px, 6vh, 32px);
     position: initial;
   }
+}
+
+.hide {
+  display: none;
 }
