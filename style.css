@@ -82,43 +82,38 @@ main {
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 8rem;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
 }
 
-.btn-control::after,
-.btn-lightmode-on::after,
-.btn-darkmode-on::after {
+.btn-control::before,
+.btn-lightmode-on::before,
+.btn-darkmode-on::before {
   content: '';
   background-color: var(--bg-emphasis);
   display: block;
-  justify-self: flex-end;
   position: absolute;
+  top: -16px;
   height: 4px;
   width: 0%;
-  --margin-bottom: -12px;
-  margin-bottom: var(--margin-bottom);
-  transition: all 0.1s ease-in-out;
+  /* margin-bottom: 12px; */
+  transition: all 0.3s ease-in-out, top 0.1s;
 }
 
-.btn-control:hover::after,
-.btn-lightmode-on:hover::after,
-.btn-darkmode-on:hover::after {
+.btn-control:hover::before,
+.btn-lightmode-on:hover::before,
+.btn-darkmode-on:hover::before {
   align-self: center;
   border-radius: 999px;
   width: 100%;
 }
 
-.btn-control:active::after,
-.btn-lightmode-on:active::after,
-.btn-darkmode-on:active::after {
-  opacity: 0.4;
-  border-radius: 999px;
+.btn-control:active::before,
+.btn-lightmode-on:active::before,
+.btn-darkmode-on:active::before {
   width: 100%;
-  height: 100%;
-  margin-bottom: 0;
+  top: -4px;
 }
 
 .btn-control svg path {
