@@ -1,18 +1,32 @@
 * {
   padding: 0;
   margin: 0;
-  border: none;
+  border: 0;
   box-sizing: border-box;
 }
 
 :root {
   font-size: 6.25%;
   --ff-timer: 'Roboto', sans-serif;
-  --bg-color-button: hsl(240, 9%, 89%);
-  --color-emphasis: hsl(194, 97%, 31%);
-  --fc-color-emphasis: #fff;
-  --fc-text-primary: hsl(240, 6%, 21%);
-  --btn-cntrl-width: 48rem;
+
+  /* Light Mode colors */
+  --bg-body: white;
+  --bg-primary-color: hsl(240, 9%, 89%);
+  --bg-emphasis: hsl(194, 97%, 31%);
+  --fc-primary-color: hsl(240, 6%, 21%);
+  --fc-icon-emphasis: white;
+  /*  
+    Dark Mode colors are NOT BEING USED here.
+    Colors of the dark mode are being changed by javascript
+    here im just "storign" them 
+  */
+  --bg-body-darkmode: black;
+  --bg-primary-color-darkmode: hsl(240, 9%, 21%);
+  --bg-emphasis-darkmode: hsl(194, 97%, 31%);
+  --fc-primary-color-darkmode: hsl(240, 6%, 89%);
+  --fc-icon-emphasis-darkmode: white;
+
+  /* to avoid repetition for the animations / below */
   --animation-duration: 1.2s;
   --animation-delay: 0.2s;
   --animation-timing-function: ease-in-out;
@@ -20,12 +34,13 @@
 }
 
 body {
+  background-color: var(--bg-body);
   font-size: 16rem;
   font-family: var(--ff-timer);
   display: grid;
   align-items: center;
-  justify-content: center;
   height: 100vh;
+  position: relative;
 }
 
 main {
@@ -34,6 +49,7 @@ main {
   justify-content: center;
   align-items: center;
   height: fit-content;
+  margin-top: 8px;
 }
 
 .timer-section {
@@ -51,7 +67,7 @@ main {
   font-size: clamp(80rem, 17vw, 130rem);
   /* font-size: 126rem; */
   font-weight: 500;
-  color: var(--fc-text-primary);
+  color: var(--fc-primary-color);
 }
 
 .panel-controls {
@@ -59,7 +75,9 @@ main {
   justify-content: space-around;
 }
 
-.btn-control {
+.btn-control,
+.btn-lightmode-on,
+.btn-darkmode-on {
   background: none;
   display: flex;
   position: relative;
@@ -67,11 +85,14 @@ main {
   gap: 8rem;
   justify-content: flex-end;
   align-items: center;
+  align-content: center;
 }
 
-.btn-control::after {
+.btn-control::after,
+.btn-lightmode-on::after,
+.btn-darkmode-on::after {
   content: '';
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
   display: block;
   justify-self: flex-end;
   position: absolute;
@@ -82,17 +103,26 @@ main {
   transition: all 0.1s ease-in-out;
 }
 
-.btn-control:hover::after {
+.btn-control:hover::after,
+.btn-lightmode-on:hover::after,
+.btn-darkmode-on:hover::after {
+  align-self: center;
   border-radius: 999px;
   width: 100%;
 }
 
-.btn-control:active::after {
+.btn-control:active::after,
+.btn-lightmode-on:active::after,
+.btn-darkmode-on:active::after {
   opacity: 0.4;
   border-radius: 999px;
   width: 100%;
   height: 100%;
   margin-bottom: 0;
+}
+
+.btn-control svg path {
+  fill: var(--fc-primary-color);
 }
 
 .sounds-section {
@@ -109,7 +139,7 @@ main {
 }
 
 .btn-sound {
-  background-color: var(--bg-color-button);
+  background-color: var(--bg-primary-color);
 
   width: clamp(50rem, 20vw, 138rem);
   /* width: 138rem; */
@@ -120,7 +150,7 @@ main {
 }
 
 .btn-sound:hover {
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
 }
 
 .btn-sound svg {
@@ -138,8 +168,35 @@ main {
   height: 48rem;
 }
 
+.btn-sound svg path {
+  fill: var(--fc-primary-color)
+}
+
 .btn-sound:hover svg path {
-  fill: white;
+  fill: var(--fc-icon-emphasis);
+}
+
+.theme-wrapper {
+  position: absolute;
+  top: clamp(18px, 8vw, 90px);
+  /* top: 30px; */
+  right: clamp(18px, 8vw, 90px);
+  /* right: 30px; */
+}
+
+.btn-lightmode-on svg {
+  display: inline;
+}
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
+}
+
+.btn-darkmode-on svg {
+  display: inline;
+  width: 100%;
+}
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
 }
 
 @keyframes left-to-right {
@@ -170,7 +227,6 @@ main {
   main {
     flex-direction: column;
     gap: 60rem;
-    margin-top: 34rem;
   }
 
   .timer-display {
@@ -195,4 +251,22 @@ main {
     width: clamp(16rem, 10vw, 46rem);
     /* width: 46rem; */
   }
+}
+
+@media (max-width: 1024px) {
+  body {
+    grid-template-rows: auto auto;
+  }
+
+  .theme-wrapper {
+    align-self: flex-start;
+    justify-self: center;
+    margin: 0;
+    padding: clamp(4px, 6vh, 32px);
+    position: initial;
+  }
+}
+
+.hide {
+  display: none;
 }

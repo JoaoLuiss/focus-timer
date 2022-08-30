@@ -1,3 +1,5 @@
+// import {} from '../views/elements'
+
 export function Events({
   buttonPlay,
   buttonStop,
@@ -8,7 +10,10 @@ export function Events({
   buttonMarket,
   buttonFire,
   timer,
-  sounds
+  sounds,
+  buttonLightmodeOn,
+  buttonDarkmodeOn,
+  scenario
 }) {
   buttonPlay.addEventListener('click', () => {
     sounds.btnClicking()
@@ -52,5 +57,15 @@ export function Events({
   buttonFire.addEventListener('click', () => {
     sounds.btnClicking()
     sounds.fire()
+  })
+
+  buttonLightmodeOn.addEventListener('click', () => {
+    sounds.btnClicking()
+    scenario.turnDarkmodeOn()
+  })
+
+  buttonDarkmodeOn.addEventListener('click', () => {
+    sounds.btnClicking()
+    scenario.turnLightmodeOn()
   })
 }

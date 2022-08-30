@@ -8,15 +8,20 @@ import {
   buttonMarket,
   buttonFire,
   minutesElement,
-  secondsElement
+  secondsElement,
+  buttonLightmodeOn,
+  buttonDarkmodeOn
 } from '../views/elements.js'
 import { Events } from './events.js'
 import { Timer } from '../models/timer.js'
 import { Sounds } from '../models/sounds.js'
+import { Scenario } from '../views/scenario.js'
 
 const sounds = Sounds()
 
 const timer = Timer({ minutesElement, secondsElement, sounds })
+
+const scenario = Scenario()
 
 Events({
   buttonPlay,
@@ -28,5 +33,8 @@ Events({
   buttonMarket,
   buttonFire,
   timer,
-  sounds
+  sounds,
+  buttonLightmodeOn,
+  buttonDarkmodeOn,
+  scenario
 })
