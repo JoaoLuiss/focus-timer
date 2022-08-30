@@ -9,7 +9,6 @@ export function Scenario() {
     document.documentElement.style.setProperty("--bg-emphasis", "hsl(194, 97%, 31%)");
     document.documentElement.style.setProperty("--fc-primary-color", "hsl(240, 6%, 89%)");
     document.documentElement.style.setProperty("--fc-icon-emphasis", "white");
-    // --fc-icon-emphasis: white;
   }
 
   function turnLightmodeOn() {

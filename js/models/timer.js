@@ -1,4 +1,6 @@
-export function Timer({ minutesElement, secondsElement, sounds }) {
+import { minutesElement, secondsElement } from '../views/elements.js'
+
+export function Timer({ sounds }) {
   let minutes = Number(minutesElement.textContent)
   let seconds = Number(secondsElement.textContent)
   let resetMinutes = minutes

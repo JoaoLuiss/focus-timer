@@ -1,6 +1,4 @@
-// import {} from '../views/elements'
-
-export function Events({
+import {
   buttonPlay,
   buttonStop,
   buttonPlus,
@@ -9,12 +7,11 @@ export function Events({
   buttonRain,
   buttonMarket,
   buttonFire,
-  timer,
-  sounds,
   buttonLightmodeOn,
-  buttonDarkmodeOn,
-  scenario
-}) {
+  buttonDarkmodeOn
+} from '../views/elements.js'
+
+export function Events({ timer, sounds, scenario }) {
   buttonPlay.addEventListener('click', () => {
     sounds.btnClicking()
     if (timer.isItRolling() === true) {
