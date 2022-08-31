@@ -20,7 +20,7 @@ export function Timer({ sounds }) {
       secondsElement.textContent = seconds
       minutesElement.textContent = minutes
       fillZeroOnDisplay()
-      if (minutes == 0 && seconds == 0) {
+      if (minutes < 0) {
         finishTimer()
       } else play()
     }, 1000)
