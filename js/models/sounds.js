@@ -25,36 +25,31 @@ export function Sounds() {
   }
 
   function forest() {
-    if (soundsList.forestSound.paused) {
-      stopAllSounds()
-      soundsList.forestSound.play()
-    } else soundsList.forestSound.pause()
+    togglePlaySound(soundsList.forestSound)
   }
 
   function rain() {
-    if (soundsList.rainSound.paused) {
-      stopAllSounds()
-      soundsList.rainSound.play()
-    } else soundsList.rainSound.pause()
+    togglePlaySound(soundsList.rainSound)
   }
 
   function market() {
-    if (soundsList.marketSound.paused) {
-      stopAllSounds()
-      soundsList.marketSound.play()
-    } else soundsList.marketSound.pause()
+  togglePlaySound(soundsList.marketSound)
   }
 
   function fire() {
-    if (soundsList.fireSound.paused) {
-      stopAllSounds()
-      soundsList.fireSound.play()
-    } else soundsList.fireSound.pause()
+    togglePlaySound(soundsList.fireSound)
   }
 
   function timeEnded() {
     timeEndedSound.play()
   }
+  
+    function togglePlaySound(audio) {
+      if (audio.paused) {
+        stopAllSounds()
+        audio.play()
+      } else audio.pause()
+    }
 
   function stopAllSounds() {
     for (const object in soundsList) {
