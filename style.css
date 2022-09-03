@@ -15,18 +15,8 @@
   --bg-emphasis: hsl(194, 97%, 31%);
   --fc-primary-color: hsl(240, 6%, 21%);
   --fc-icon-emphasis: white;
-  /*  
-    Dark Mode colors are NOT BEING USED here.
-    Colors of the dark mode are being changed by javascript
-    here im just "storign" them 
-  */
-  --bg-body-darkmode: black;
-  --bg-primary-color-darkmode: hsl(240, 9%, 21%);
-  --bg-emphasis-darkmode: hsl(194, 97%, 31%);
-  --fc-primary-color-darkmode: hsl(240, 6%, 89%);
-  --fc-icon-emphasis-darkmode: white;
 
-  /* to avoid repetition for the animations / below */
+  /* to avoid repetition for the animations */
   --animation-duration: 1.2s;
   --animation-delay: 0.2s;
   --animation-timing-function: ease-in-out;
@@ -65,7 +55,6 @@ main {
 
 .timer-display {
   font-size: clamp(80rem, 17vw, 130rem);
-  /* font-size: 126rem; */
   font-weight: 500;
   color: var(--fc-primary-color);
 }
@@ -97,7 +86,6 @@ main {
   top: -16px;
   height: 4px;
   width: 0%;
-  /* margin-bottom: 12px; */
   transition: all 0.3s ease-in-out, top 0.1s;
 }
 
@@ -137,9 +125,7 @@ main {
   background-color: var(--bg-primary-color);
 
   width: clamp(50rem, 20vw, 138rem);
-  /* width: 138rem; */
   height: clamp(55rem, 22vw, 152rem);
-  /* height: 152rem; */
   border-radius: 24rem;
   transition: all 0.8s ease-out;
 }
@@ -152,9 +138,6 @@ main {
   display: inline;
   width: 46rem;
   height: 48rem;
-  /* in HTML dimensions are:
-  width: 45rem;
-  height: 56rem; */
 }
 
 .btn-control svg {
@@ -164,7 +147,7 @@ main {
 }
 
 .btn-sound svg path {
-  fill: var(--fc-primary-color)
+  fill: var(--fc-primary-color);
 }
 
 .btn-sound:hover svg path {
@@ -174,9 +157,7 @@ main {
 .theme-wrapper {
   position: absolute;
   top: clamp(18px, 8vw, 90px);
-  /* top: 30px; */
   right: clamp(18px, 8vw, 90px);
-  /* right: 30px; */
 }
 
 .btn-lightmode-on svg {
@@ -239,12 +220,10 @@ main {
 
   .btn-control svg {
     width: clamp(20rem, 12vw, 48rem);
-    /* width: 48rem; */
   }
 
   .btn-sound svg {
     width: clamp(16rem, 10vw, 46rem);
-    /* width: 46rem; */
   }
 }
 
