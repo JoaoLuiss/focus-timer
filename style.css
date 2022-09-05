@@ -33,6 +33,13 @@ body {
   position: relative;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
 main {
   display: flex;
   gap: clamp(30rem, 8vw, 192rem);
@@ -104,6 +111,12 @@ main {
   top: -4px;
 }
 
+.btn-control svg {
+  display: inline;
+  width: 48rem;
+  height: 48rem;
+}
+
 .btn-control svg path {
   fill: var(--fc-primary-color);
 }
@@ -123,9 +136,15 @@ main {
 
 .btn-sound {
   background-color: var(--bg-primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
   width: clamp(50rem, 20vw, 138rem);
   height: clamp(55rem, 22vw, 152rem);
+  padding: 16px;
   border-radius: 24rem;
   transition: all 0.8s ease-out;
 }
@@ -140,18 +159,30 @@ main {
   height: 48rem;
 }
 
-.btn-control svg {
-  display: inline;
-  width: 48rem;
-  height: 48rem;
-}
-
 .btn-sound svg path {
   fill: var(--fc-primary-color);
 }
 
 .btn-sound:hover svg path {
   fill: var(--fc-icon-emphasis);
+}
+
+.volume-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+label[for='input-volume-slider'] {
+  color: var(--fc-primary-color);
+  font-size: 12rem;
+}
+
+#input-volume-slider {
+  accent-color: var(--fc-primary-color);
+  justify-self: center;
+  width: 200px;
 }
 
 .theme-wrapper {

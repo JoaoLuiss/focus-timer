@@ -8,7 +8,8 @@ import {
   buttonMarket,
   buttonFire,
   buttonLightmodeOn,
-  buttonDarkmodeOn
+  buttonDarkmodeOn,
+  inputSlider
 } from '../views/elements.js'
 
 export function Events({ timer, sounds, scenario }) {
@@ -64,5 +65,9 @@ export function Events({ timer, sounds, scenario }) {
   buttonDarkmodeOn.addEventListener('click', () => {
     sounds.btnClicking()
     scenario.turnLightmodeOn()
+  })
+
+  inputSlider.addEventListener('change', (event) => {
+    sounds.updateVolume(inputSlider.value)
   })
 }

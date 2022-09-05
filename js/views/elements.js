@@ -10,6 +10,7 @@ const minutesElement = document.querySelector('.minutes')
 const secondsElement = document.querySelector('.seconds')
 const buttonLightmodeOn = document.querySelector('.btn-lightmode-on')
 const buttonDarkmodeOn = document.querySelector('.btn-darkmode-on')
+const inputSlider = document.querySelector('#input-volume-slider')
 
 export {
   buttonPlay,
@@ -23,5 +24,6 @@ export {
   minutesElement,
   secondsElement,
   buttonLightmodeOn,
-  buttonDarkmodeOn
+  buttonDarkmodeOn,
+  inputSlider
 }

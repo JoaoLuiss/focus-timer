@@ -5,6 +5,7 @@ export function Sounds() {
   soundsList.marketSound = new Audio('/js/assets/Cafeteria.wav')
   soundsList.fireSound = new Audio('/js/assets/Lareira.wav')
 
+  // iteration all sounds to turn looping on
   for (const object in soundsList) {
     if (Object.hasOwnProperty.call(soundsList, object)) {
       const sound = soundsList[object]
@@ -33,7 +34,7 @@ export function Sounds() {
   }
 
   function market() {
-  togglePlaySound(soundsList.marketSound)
+    togglePlaySound(soundsList.marketSound)
   }
 
   function fire() {
@@ -43,19 +44,31 @@ export function Sounds() {
   function timeEnded() {
     timeEndedSound.play()
   }
-  
-    function togglePlaySound(audio) {
-      if (audio.paused) {
-        stopAllSounds()
-        audio.play()
-      } else audio.pause()
-    }
+
+  function togglePlaySound(audio) {
+    if (audio.paused) {
+      stopAllSounds()
+      audio.play()
+    } else audio.pause()
+  }
 
   function stopAllSounds() {
-    for (const object in soundsList) {
-      if (Object.hasOwnProperty.call(soundsList, object)) {
-        const sound = soundsList[object]
+    // Iterating all sounds to stopping them
+    for (const iterator in soundsList) {
+      if (Object.hasOwnProperty.call(soundsList, iterator)) {
+        const sound = soundsList[iterator]
         sound.pause()
+      }
+    }
+  }
+
+  function updateVolume(newVolume) {
+    newVolume = Number(newVolume) / 100
+    // Iterating all sounds to change their volume
+    for (const iterator in soundsList) {
+      if (Object.hasOwnProperty.call(soundsList, iterator)) {
+        const sound = soundsList[iterator]
+        sound.volume = newVolume
       }
     }
   }
@@ -67,6 +80,7 @@ export function Sounds() {
     market,
     fire,
     timeEnded,
-    stopAllSounds
+    stopAllSounds,
+    updateVolume
   }
 }
