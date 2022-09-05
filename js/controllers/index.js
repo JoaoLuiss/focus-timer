@@ -14,3 +14,5 @@ Events({
   timer,
   scenario
 })
+
+scenario.turnDarkmodeOn()
