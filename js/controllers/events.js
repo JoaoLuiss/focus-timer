@@ -1,4 +1,4 @@
-export function Events({
+import {
   buttonPlay,
   buttonStop,
   buttonPlus,
@@ -7,9 +7,12 @@ export function Events({
   buttonRain,
   buttonMarket,
   buttonFire,
-  timer,
-  sounds
-}) {
+  buttonLightmodeOn,
+  buttonDarkmodeOn,
+  inputSlider
+} from '../views/elements.js'
+
+export function Events({ timer, sounds, scenario }) {
   buttonPlay.addEventListener('click', () => {
     sounds.btnClicking()
     if (timer.isItRolling() === true) {
@@ -52,5 +55,19 @@ export function Events({
   buttonFire.addEventListener('click', () => {
     sounds.btnClicking()
     sounds.fire()
+  })
+
+  buttonLightmodeOn.addEventListener('click', () => {
+    sounds.btnClicking()
+    scenario.turnDarkmodeOn()
+  })
+
+  buttonDarkmodeOn.addEventListener('click', () => {
+    sounds.btnClicking()
+    scenario.turnLightmodeOn()
+  })
+
+  inputSlider.addEventListener('change', (event) => {
+    sounds.updateVolume(inputSlider.value)
   })
 }

@@ -1,18 +1,22 @@
 * {
   padding: 0;
   margin: 0;
-  border: none;
+  border: 0;
   box-sizing: border-box;
 }
 
 :root {
   font-size: 6.25%;
   --ff-timer: 'Roboto', sans-serif;
-  --bg-color-button: hsl(240, 9%, 89%);
-  --color-emphasis: hsl(194, 97%, 31%);
-  --fc-color-emphasis: #fff;
-  --fc-text-primary: hsl(240, 6%, 21%);
-  --btn-cntrl-width: 48rem;
+
+  /* Light Mode colors */
+  --bg-body: white;
+  --bg-primary-color: hsl(240, 9%, 89%);
+  --bg-emphasis: hsl(194, 97%, 31%);
+  --fc-primary-color: hsl(240, 6%, 21%);
+  --fc-icon-emphasis: white;
+
+  /* to avoid repetition for the animations */
   --animation-duration: 1.2s;
   --animation-delay: 0.2s;
   --animation-timing-function: ease-in-out;
@@ -20,12 +24,20 @@
 }
 
 body {
+  background-color: var(--bg-body);
   font-size: 16rem;
   font-family: var(--ff-timer);
   display: grid;
   align-items: center;
-  justify-content: center;
   height: 100vh;
+  position: relative;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
 
 main {
@@ -34,6 +46,7 @@ main {
   justify-content: center;
   align-items: center;
   height: fit-content;
+  margin-top: 8px;
 }
 
 .timer-section {
@@ -49,9 +62,8 @@ main {
 
 .timer-display {
   font-size: clamp(80rem, 17vw, 130rem);
-  /* font-size: 126rem; */
   font-weight: 500;
-  color: var(--fc-text-primary);
+  color: var(--fc-primary-color);
 }
 
 .panel-controls {
@@ -59,40 +71,54 @@ main {
   justify-content: space-around;
 }
 
-.btn-control {
+.btn-control,
+.btn-lightmode-on,
+.btn-darkmode-on {
   background: none;
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 8rem;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  align-content: center;
 }
 
-.btn-control::after {
+.btn-control::before,
+.btn-lightmode-on::before,
+.btn-darkmode-on::before {
   content: '';
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
   display: block;
-  justify-self: flex-end;
   position: absolute;
+  top: -16px;
   height: 4px;
   width: 0%;
-  --margin-bottom: -12px;
-  margin-bottom: var(--margin-bottom);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out, top 0.1s;
 }
 
-.btn-control:hover::after {
+.btn-control:hover::before,
+.btn-lightmode-on:hover::before,
+.btn-darkmode-on:hover::before {
+  align-self: center;
   border-radius: 999px;
   width: 100%;
 }
 
-.btn-control:active::after {
-  opacity: 0.4;
-  border-radius: 999px;
+.btn-control:active::before,
+.btn-lightmode-on:active::before,
+.btn-darkmode-on:active::before {
   width: 100%;
-  height: 100%;
-  margin-bottom: 0;
+  top: -4px;
+}
+
+.btn-control svg {
+  display: inline;
+  width: 48rem;
+  height: 48rem;
+}
+
+.btn-control svg path {
+  fill: var(--fc-primary-color);
 }
 
 .sounds-section {
@@ -109,37 +135,75 @@ main {
 }
 
 .btn-sound {
-  background-color: var(--bg-color-button);
+  background-color: var(--bg-primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
   width: clamp(50rem, 20vw, 138rem);
-  /* width: 138rem; */
   height: clamp(55rem, 22vw, 152rem);
-  /* height: 152rem; */
+  padding: 16px;
   border-radius: 24rem;
   transition: all 0.8s ease-out;
 }
 
 .btn-sound:hover {
-  background-color: var(--color-emphasis);
+  background-color: var(--bg-emphasis);
 }
 
 .btn-sound svg {
   display: inline;
   width: 46rem;
   height: 48rem;
-  /* in HTML dimensions are:
-  width: 45rem;
-  height: 56rem; */
 }
 
-.btn-control svg {
-  display: inline;
-  width: 48rem;
-  height: 48rem;
+.btn-sound svg path {
+  fill: var(--fc-primary-color);
 }
 
 .btn-sound:hover svg path {
-  fill: white;
+  fill: var(--fc-icon-emphasis);
+}
+
+.volume-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+label[for='input-volume-slider'] {
+  color: var(--fc-primary-color);
+  font-size: 12rem;
+}
+
+#input-volume-slider {
+  accent-color: var(--fc-primary-color);
+  justify-self: center;
+  width: 200px;
+}
+
+.theme-wrapper {
+  position: absolute;
+  top: clamp(18px, 8vw, 90px);
+  right: clamp(18px, 8vw, 90px);
+}
+
+.btn-lightmode-on svg {
+  display: inline;
+}
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
+}
+
+.btn-darkmode-on svg {
+  display: inline;
+  width: 100%;
+}
+.btn-lightmode-on svg path {
+  fill: var(--fc-primary-color);
 }
 
 @keyframes left-to-right {
@@ -170,7 +234,6 @@ main {
   main {
     flex-direction: column;
     gap: 60rem;
-    margin-top: 34rem;
   }
 
   .timer-display {
@@ -188,11 +251,27 @@ main {
 
   .btn-control svg {
     width: clamp(20rem, 12vw, 48rem);
-    /* width: 48rem; */
   }
 
   .btn-sound svg {
     width: clamp(16rem, 10vw, 46rem);
-    /* width: 46rem; */
   }
+}
+
+@media (max-width: 1024px) {
+  body {
+    grid-template-rows: auto auto;
+  }
+
+  .theme-wrapper {
+    align-self: flex-start;
+    justify-self: center;
+    margin: 0;
+    padding: clamp(4px, 6vh, 32px);
+    position: initial;
+  }
+}
+
+.hide {
+  display: none;
 }
